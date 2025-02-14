@@ -11,6 +11,8 @@ void main() {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      onGenerateInitialRoutes: (settings) => ,
     );
   }
 }
