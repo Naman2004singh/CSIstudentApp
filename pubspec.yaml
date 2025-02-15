@@ -29,8 +29,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^4.0.0
-
+  flutter_lints: ^4.0.0  
+  rive: ^0.13.20
 
 flutter:
 
@@ -40,6 +40,7 @@ flutter:
   assets:
     - assets/images/
     - assets/logos/
+    - assets/animation/
 
   #---------LOCAL FONTS-------------#
   fonts:
