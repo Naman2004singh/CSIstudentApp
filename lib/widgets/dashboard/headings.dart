@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:csi_app/utils/constants.dart';
 
+
 double padding = Constants.insidepadding;
 
 class Headings extends StatelessWidget {
@@ -32,6 +33,28 @@ class Headings extends StatelessWidget {
                 size: 12.0,
               )
             ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class SmallHeading extends StatelessWidget {
+  const SmallHeading({super.key, required this.heading});
+
+  final String heading;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: padding),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            heading,
+            style: Textstyle.headlineLarge,
           )
         ],
       ),

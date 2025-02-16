@@ -2,6 +2,7 @@ import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/appBar.dart';
 import 'package:csi_app/widgets/carousel/event_slider.dart';
 import 'package:csi_app/widgets/dashboard/headings.dart';
+import 'package:csi_app/widgets/dashboard/our_features.dart';
 import 'package:csi_app/widgets/dashboard/who_we_are.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -42,7 +43,15 @@ class Dashboard extends ConsumerWidget {
           height: sizedHeight,
         ),
         const Headings(heading: "Who We Are", sideOptions: "Read More"),
-        const WhoWeAre()
+        const WhoWeAre(),
+        SizedBox(
+          height: sizedHeight,
+        ),
+        const SmallHeading(heading: "Our Features"),
+        const OurFeatures(),
+        SizedBox(
+          height: sizedHeight,
+        ),
       ],
     ));
   }

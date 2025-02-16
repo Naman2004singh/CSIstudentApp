@@ -16,7 +16,7 @@ class Textstyle {
       color: AllColors.whiteColor);
   static TextStyle headlineMedium = const TextStyle(
       fontFamily: "Poppins",
-      fontSize: 24.0,
+      fontSize: 20.0,
       fontWeight: FontWeight.w400,
       color: AllColors.blackColor);
   static TextStyle headlineDrawer = const TextStyle(
