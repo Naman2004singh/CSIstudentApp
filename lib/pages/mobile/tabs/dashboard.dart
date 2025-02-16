@@ -1,8 +1,10 @@
+import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/appBar.dart';
 import 'package:csi_app/widgets/carousel/event_slider.dart';
 import 'package:csi_app/widgets/dashboard/headings.dart';
 import 'package:csi_app/widgets/dashboard/our_features.dart';
+import 'package:csi_app/widgets/dashboard/our_misson.dart';
 import 'package:csi_app/widgets/dashboard/who_we_are.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,6 +12,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 double padding = Constants.insidepadding;
 double borderRadius = Constants.borderRadius;
 double sizedHeight = Constants.sizedBoxHeight;
+double smallbox = Constants.smallSizedBox;
 
 class Dashboard extends ConsumerWidget {
   const Dashboard({super.key});
@@ -17,42 +20,51 @@ class Dashboard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+        backgroundColor: AllColors.greyBackground,
         body: ListView(
-      children: [
-        ListView(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
           children: [
-            const Appbar(),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(borderRadius),
-                      bottomRight: Radius.circular(borderRadius))),
-              elevation: 10,
-              child: const Column(
-                children: [
-                  Headings(heading: "Events", sideOptions: "See all"),
-                  EventSlider(),
-                ],
-              ),
+            ListView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                const Appbar(),
+                Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(borderRadius),
+                          bottomRight: Radius.circular(borderRadius))),
+                  elevation: 10,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: smallbox,
+                      ),
+                      const Headings(heading: "Events", sideOptions: "See all"),
+                      const EventSlider(),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: sizedHeight,
+            ),
+            const Headings(heading: "Who We Are", sideOptions: "Read More"),
+            const WhoWeAre(),
+            SizedBox(
+              height: sizedHeight,
+            ),
+            const SmallHeading(heading: "Our Features"),
+            const OurFeatures(),
+            SizedBox(
+              height: sizedHeight,
+            ),
+            const SmallHeading(heading: "Our Misson"),
+            const OurMisson(),
+            SizedBox(
+              height: sizedHeight,
             )
           ],
-        ),
-        SizedBox(
-          height: sizedHeight,
-        ),
-        const Headings(heading: "Who We Are", sideOptions: "Read More"),
-        const WhoWeAre(),
-        SizedBox(
-          height: sizedHeight,
-        ),
-        const SmallHeading(heading: "Our Features"),
-        const OurFeatures(),
-        SizedBox(
-          height: sizedHeight,
-        ),
-      ],
-    ));
+        ));
   }
 }

@@ -41,7 +41,7 @@ class Textstyle {
       color: AllColors.blackColor);
   static TextStyle bodyMedium = const TextStyle(
       fontFamily: "Poppins",
-      fontSize: 16.0,
+      fontSize: 14.0,
       fontWeight: FontWeight.w500,
       color: AllColors.blackColor);
   static TextStyle bodySmallgrey = const TextStyle(

@@ -11,4 +11,5 @@ class AllColors {
   static const Color geryTextColor = Color(0xff495057);
   static const Color redColor = Color(0xffFF0000);
   static const Color lightBlueColor = Color(0xffCFE2FF);
+  static const Color greyBackground = Color(0xffE9ECEF);
 }
