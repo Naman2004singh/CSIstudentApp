@@ -20,6 +20,7 @@ class Dashboard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+        appBar: const Appbar(),
         backgroundColor: AllColors.greyBackground,
         body: ListView(
           children: [
@@ -27,7 +28,6 @@ class Dashboard extends ConsumerWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               children: [
-                const Appbar(),
                 Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
