@@ -2,6 +2,7 @@ import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/appBar.dart';
 import 'package:csi_app/widgets/carousel/event_slider.dart';
+import 'package:csi_app/widgets/carousel/event_view_model.dart';
 import 'package:csi_app/widgets/dashboard/headings.dart';
 import 'package:csi_app/widgets/dashboard/our_features.dart';
 import 'package:csi_app/widgets/dashboard/our_misson.dart';
@@ -19,8 +20,15 @@ class Dashboard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final eventViewModel = ref.watch(stateProvider);
     return Scaffold(
-        appBar: const Appbar(),
+        appBar: Appbar(
+          isDrawerOpen: eventViewModel.isDraweOpen,
+        ),
+        drawer: const Drawer(),
+        onDrawerChanged: (isOpen) {
+          eventViewModel.onDraweChange(isOpen);
+        },
         backgroundColor: AllColors.greyBackground,
         body: ListView(
           children: [

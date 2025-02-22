@@ -4,13 +4,13 @@ import 'package:csi_app/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' hide Image;
 
-class Appbar extends StatefulWidget implements PreferredSizeWidget{
-  const Appbar({super.key});
+class Appbar extends StatefulWidget implements PreferredSizeWidget {
+  const Appbar({super.key, required this.isDrawerOpen});
 
+  final bool isDrawerOpen;
   @override
   State<Appbar> createState() => _AppbarState();
 
-  
   @override
   Size get preferredSize {
     double height = Constants.appBarHeight;
@@ -19,12 +19,7 @@ class Appbar extends StatefulWidget implements PreferredSizeWidget{
 }
 
 class _AppbarState extends State<Appbar> {
-  // on press menu icon
   late SMIBool menubtn;
-  void onmenuPress() {
-    if (menubtn.value) {}
-    menubtn.change(!menubtn.value);
-  }
 
   // onMenu init
   void onMenuInit(Artboard artboard) {
@@ -35,12 +30,30 @@ class _AppbarState extends State<Appbar> {
   }
 
   @override
+  void didUpdateWidget(covariant Appbar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.isDrawerOpen != widget.isDrawerOpen) {
+      menubtn.value = widget.isDrawerOpen;
+    }
+  }
+
+  void toggleDrawer(BuildContext context) {
+    final scafold = Scaffold.of(context);
+    if (scafold.isDrawerOpen) {
+      scafold.closeDrawer();
+    } else {
+      scafold.openDrawer();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     double height = Constants.appBarHeight;
     double padding = Constants.insidepadding;
     double boderRadius = Constants.borderRadius;
     return SafeArea(
         child: AppBar(
+      automaticallyImplyLeading: false,
       toolbarHeight: height,
       backgroundColor: AllColors.darkBlue,
       shape: RoundedRectangleBorder(
@@ -64,7 +77,7 @@ class _AppbarState extends State<Appbar> {
                   width: 14.0,
                 ),
                 GestureDetector(
-                  onTap: onmenuPress,
+                  onTap: () => toggleDrawer(context),
                   child: SizedBox(
                     width: 38,
                     height: 38,
