@@ -3,8 +3,9 @@ import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
 import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:csi_app/widgets/carousel/event_slider.dart';
-import 'package:csi_app/widgets/carousel/event_view_model.dart';
+import 'package:csi_app/providers/event_view_model.dart';
 import 'package:csi_app/widgets/dashboard/headings.dart';
+import 'package:csi_app/widgets/dashboard/knowmore.dart';
 import 'package:csi_app/widgets/dashboard/our_features.dart';
 import 'package:csi_app/widgets/dashboard/our_misson.dart';
 import 'package:csi_app/widgets/dashboard/who_we_are.dart';
@@ -21,6 +22,7 @@ class Dashboard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double width = Constants.screenWidth(context);
     final eventViewModel = ref.watch(stateProvider);
     return Scaffold(
         appBar: Appbar(
@@ -38,21 +40,27 @@ class Dashboard extends ConsumerWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(borderRadius),
-                          bottomRight: Radius.circular(borderRadius))),
-                  elevation: 10,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: smallbox,
-                      ),
-                      const Headings(heading: "Events", sideOptions: "See all"),
-                      const EventSlider(),
-                    ],
-                  ),
-                )
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(borderRadius),
+                            bottomRight: Radius.circular(borderRadius))),
+                    elevation: 10,
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: smallbox,
+                            ),
+                            const Headings(
+                                heading: "Events", sideOptions: "See all"),
+                            const EventSlider(),
+                          ],
+                        ),
+                        Positioned(
+                            top: 240, left: width / 2.5, child: const Knowmore()),
+                      ],
+                    ))
               ],
             ),
             SizedBox(

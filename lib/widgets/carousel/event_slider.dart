@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
-import 'package:csi_app/widgets/carousel/event_view_model.dart';
+import 'package:csi_app/providers/event_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

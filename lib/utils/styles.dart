@@ -49,4 +49,9 @@ class Textstyle {
       fontSize: 13.0,
       fontWeight: FontWeight.w400,
       color: AllColors.geryTextColor);
+  static TextStyle blueText = const TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 14.0,
+      fontWeight: FontWeight.w400,
+      color: AllColors.darkBlue);
 }

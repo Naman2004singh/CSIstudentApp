@@ -12,4 +12,7 @@ class AllStrings {
 
   static String ourMisson =
       "Our Mission is to facilitate research, knowledge sharing, learning and career enhancement for all categories of IT Professionals, while simultaneously inspiring and nurturing new entrants into the industry and helping them to integrate into the IT community. We are also working closely with other industry associations, government bodies and academia to ensure that the benefits of IT advancement ultimately percolate down to every single citizen of India.";
+
+  static String description =
+      "Join us for CodeFest 2025, an exciting coding event where innovation meets competition! Whether you're a beginner or an experienced programmer, this event offers a platform to showcase your skills, collaborate with like-minded tech enthusiasts, and solve real-world challenges.";
 }
