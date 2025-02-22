@@ -49,8 +49,9 @@ class _AppbarState extends State<Appbar> {
   @override
   Widget build(BuildContext context) {
     double height = Constants.appBarHeight;
-    double padding = Constants.insidepadding;
+    // double padding = Constants.insidepadding;
     double boderRadius = Constants.borderRadius;
+    double smallPadding = Constants.smallPadding;
     return SafeArea(
         child: AppBar(
       automaticallyImplyLeading: false,
@@ -61,7 +62,7 @@ class _AppbarState extends State<Appbar> {
               bottomLeft: Radius.circular(boderRadius),
               bottomRight: Radius.circular(boderRadius))),
       title: Padding(
-        padding: EdgeInsets.only(left: padding, right: padding),
+        padding: EdgeInsets.only(left: smallPadding, right: smallPadding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -69,7 +70,7 @@ class _AppbarState extends State<Appbar> {
             Row(
               children: [
                 const Icon(
-                  Icons.notifications,
+                  Icons.notifications_outlined,
                   color: AllColors.whiteColor,
                   size: 30,
                 ),

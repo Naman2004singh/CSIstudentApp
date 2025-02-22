@@ -1,6 +1,7 @@
 import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
-import 'package:csi_app/widgets/appBar.dart';
+import 'package:csi_app/widgets/AppBar/appBar.dart';
+import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:csi_app/widgets/carousel/event_slider.dart';
 import 'package:csi_app/widgets/carousel/event_view_model.dart';
 import 'package:csi_app/widgets/dashboard/headings.dart';
@@ -25,7 +26,7 @@ class Dashboard extends ConsumerWidget {
         appBar: Appbar(
           isDrawerOpen: eventViewModel.isDraweOpen,
         ),
-        drawer: const Drawer(),
+        drawer: const Appdrawer(),
         onDrawerChanged: (isOpen) {
           eventViewModel.onDraweChange(isOpen);
         },

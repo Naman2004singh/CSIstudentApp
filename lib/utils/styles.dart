@@ -7,7 +7,7 @@ class Textstyle {
   static TextStyle headlineLarge = const TextStyle(
       fontFamily: "Poppins",
       fontSize: 30.0,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       color: AllColors.blackColor);
   static TextStyle headlineLargeWhite = const TextStyle(
       fontFamily: "Poppins",
@@ -21,8 +21,8 @@ class Textstyle {
       color: AllColors.blackColor);
   static TextStyle headlineDrawer = const TextStyle(
       fontFamily: "Poppins",
-      fontSize: 33.0,
-      fontWeight: FontWeight.w500,
+      fontSize: 22.0,
+      fontWeight: FontWeight.w700,
       color: AllColors.blackColor);
   static TextStyle bodyLargeWhite = const TextStyle(
       fontFamily: "Poppins",
