@@ -8,7 +8,8 @@ class AllEvent {
   AllEvent.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
-    mediaFiles = json['media_files'].cast<String>();
+    // mediaFiles = json['media_files'].cast<String>();
+    mediaFiles = (json['media_files'] as List<dynamic>?)?.map((e) => e.toString()).toList();
   }
 
   Map<String, dynamic> toJson() {
