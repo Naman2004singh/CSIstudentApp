@@ -5,8 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final apiServiceProvider = Provider<EventApi>((ref) => EventApi());
 
 // provider to fetch item
-final allEventProvider =
-    FutureProvider.autoDispose<List<AllEvent>>((ref) async {
-  final apiService = ref.read(apiServiceProvider);
-  return apiService.fetchItems();
+final allEventProvider = FutureProvider<List<AllEvent>>((ref) async {
+  return ref.watch(apiServiceProvider).fetchItems();
 });
+//     FutureProvider.autoDispose<List<AllEvent>>((ref) async {
+//   final apiService = ref.read(apiServiceProvider);
+//   return apiService.fetchItems();
+// });
