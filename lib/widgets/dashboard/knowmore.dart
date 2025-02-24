@@ -26,3 +26,28 @@ class _KnowmoreState extends State<Knowmore> {
     );
   }
 }
+
+class CompleteStatus extends StatelessWidget {
+  final String text;
+  const CompleteStatus({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+      decoration: BoxDecoration(
+          border: Border.all(
+            color:
+                text == "previous" ? AllColors.redColor : AllColors.mainColor,
+          ),
+          color: text == "upcoming"
+              ? AllColors.whiteColor
+              : AllColors.lightBlueColor,
+          borderRadius: BorderRadius.circular(20)),
+      child: Text(
+        text,
+        style: text == "previous" ? Textstyle.redText : Textstyle.blueText,
+      ),
+    );
+  }
+}

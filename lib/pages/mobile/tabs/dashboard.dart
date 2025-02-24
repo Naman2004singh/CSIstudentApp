@@ -24,64 +24,68 @@ class Dashboard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double width = Constants.screenWidth(context);
     final eventViewModel = ref.watch(stateProvider);
-    return Scaffold(
-        appBar: Appbar(
-          isDrawerOpen: eventViewModel.isDraweOpen,
-        ),
-        drawer: const Appdrawer(),
-        onDrawerChanged: (isOpen) {
-          eventViewModel.onDraweChange(isOpen);
-        },
-        backgroundColor: AllColors.greyBackground,
-        body: ListView(
-          children: [
-            ListView(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              children: [
-                Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(borderRadius),
-                            bottomRight: Radius.circular(borderRadius))),
-                    elevation: 10,
-                    child: Stack(
-                      children: [
-                        Column(
-                          children: [
-                            SizedBox(
-                              height: smallbox,
-                            ),
-                            const Headings(
-                                heading: "Events", sideOptions: "See all"),
-                            const EventSlider(),
-                          ],
-                        ),
-                        Positioned(
-                            top: 240, left: width / 2.5, child: const Knowmore()),
-                      ],
-                    ))
-              ],
-            ),
-            SizedBox(
-              height: sizedHeight,
-            ),
-            const Headings(heading: "Who We Are", sideOptions: "Read More"),
-            const WhoWeAre(),
-            SizedBox(
-              height: sizedHeight,
-            ),
-            const SmallHeading(heading: "Our Features"),
-            const OurFeatures(),
-            SizedBox(
-              height: sizedHeight,
-            ),
-            const SmallHeading(heading: "Our Misson"),
-            const OurMisson(),
-            SizedBox(
-              height: sizedHeight,
-            )
-          ],
-        ));
+    return SafeArea(
+      child: Scaffold(
+          appBar: Appbar(
+            isDrawerOpen: eventViewModel.isDraweOpen,
+          ),
+          drawer: const Appdrawer(),
+          onDrawerChanged: (isOpen) {
+            eventViewModel.onDraweChange(isOpen);
+          },
+          backgroundColor: AllColors.greyBackground,
+          body: ListView(
+            children: [
+              ListView(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(borderRadius),
+                              bottomRight: Radius.circular(borderRadius))),
+                      elevation: 10,
+                      child: Stack(
+                        children: [
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: smallbox,
+                              ),
+                              const Headings(
+                                  heading: "Events", sideOptions: "See all"),
+                              const EventSlider(),
+                            ],
+                          ),
+                          Positioned(
+                              bottom: 20,
+                              left: width / 2.7,
+                              child: const Knowmore()),
+                        ],
+                      ))
+                ],
+              ),
+              SizedBox(
+                height: sizedHeight,
+              ),
+              const Headings(heading: "Who We Are", sideOptions: "Read More"),
+              const WhoWeAre(),
+              SizedBox(
+                height: sizedHeight,
+              ),
+              const SmallHeading(heading: "Our Features"),
+              const OurFeatures(),
+              SizedBox(
+                height: sizedHeight,
+              ),
+              const SmallHeading(heading: "Our Misson"),
+              const OurMisson(),
+              SizedBox(
+                height: sizedHeight,
+              )
+            ],
+          )),
+    );
   }
 }

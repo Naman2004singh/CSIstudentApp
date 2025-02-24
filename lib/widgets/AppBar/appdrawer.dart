@@ -17,49 +17,51 @@ class _AppdrawerState extends State<Appdrawer> {
   double padding = Constants.insidepadding;
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: AllColors.whiteColor,
-      child: Padding(
-        padding: EdgeInsets.all(padding),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  child: Image.asset(
-                    "assets/images/drawerIcon.png",
-                    width: 30,
+    return SafeArea(
+      child: Drawer(
+        backgroundColor: AllColors.whiteColor,
+        child: Padding(
+          padding: EdgeInsets.all(padding),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    child: Image.asset(
+                      "assets/images/drawerIcon.png",
+                      width: 30,
+                    ),
                   ),
-                ),
-                Image.asset(
-                  "assets/logos/csiLogo.png",
-                  width: 40,
-                ),
-              ],
-            ),
-            const Column(
-              children: [
-                Draweroption(text: "Dashboard"),
-                Draweroption(text: "Meet Our Team"),
-                Draweroption(text: "Achievements"),
-                Draweroption(text: "Service Domains"),
-                Draweroption(text: "Contact Us")
-              ],
-            ),
-            Row(
-              children: [
-                urlLauncher(FontAwesomeIcons.instagram,
-                    "https://www.instagram.com/csi_akgec/"),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                urlLauncher(FontAwesomeIcons.linkedin,
-                    "https://www.linkedin.com/in/csi-akgec/")
-              ],
-            )
-          ],
+                  Image.asset(
+                    "assets/logos/csiLogo.png",
+                    width: 40,
+                  ),
+                ],
+              ),
+              const Column(
+                children: [
+                  Draweroption(text: "Dashboard"),
+                  Draweroption(text: "Meet Our Team"),
+                  Draweroption(text: "Achievements"),
+                  Draweroption(text: "Service Domains"),
+                  Draweroption(text: "Contact Us")
+                ],
+              ),
+              Row(
+                children: [
+                  urlLauncher(FontAwesomeIcons.instagram,
+                      "https://www.instagram.com/csi_akgec/"),
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  urlLauncher(FontAwesomeIcons.linkedin,
+                      "https://www.linkedin.com/in/csi-akgec/")
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
