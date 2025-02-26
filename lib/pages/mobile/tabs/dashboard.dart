@@ -1,3 +1,4 @@
+import 'package:csi_app/providers/item_providers.dart';
 import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
@@ -24,6 +25,7 @@ class Dashboard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double width = Constants.screenWidth(context);
     final eventViewModel = ref.watch(stateProvider);
+    final allEventitems = ref.watch(allEventProvider);
     return SafeArea(
       child: Scaffold(
           appBar: Appbar(
@@ -61,7 +63,11 @@ class Dashboard extends ConsumerWidget {
                           Positioned(
                               bottom: 20,
                               left: width / 2.7,
-                              child: const Knowmore()),
+                              child: Knowmore(
+                                onTap: () {
+                                  // ref.read(selectedEventId.notifier).state = 
+                                },
+                              )),
                         ],
                       ))
                 ],

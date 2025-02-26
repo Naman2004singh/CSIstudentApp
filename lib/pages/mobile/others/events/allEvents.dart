@@ -16,7 +16,7 @@ class Allevents extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     double padding = Constants.insidepadding;
-    double borderRadius = Constants.borderRadius;
+    double smallborderRadius = Constants.smallradius;
     double width = Constants.screenWidth(context);
     final allEventitems = ref.watch(allEventProvider);
     final appBarViewModel = ref.watch(stateProvider);
@@ -63,10 +63,11 @@ class Allevents extends ConsumerWidget {
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius:
-                                    BorderRadius.circular(borderRadius),
+                                    BorderRadius.circular(smallborderRadius),
                                 border: Border.all(color: AllColors.darkBlue)),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(borderRadius),
+                              borderRadius:
+                                  BorderRadius.circular(smallborderRadius),
                               child: alldata.poster?.isNotEmpty == true
                                   ? Image.network(
                                       alldata.poster!,
@@ -88,7 +89,13 @@ class Allevents extends ConsumerWidget {
                           Positioned(
                               bottom: 20,
                               left: width / 2.7,
-                              child: const Knowmore()),
+                              child: Knowmore(
+                                onTap: () {
+                                  ref.read(selectedEventId.notifier).state =
+                                      alldata.id;
+                                  // now navigate to the screen by passing the event id
+                                },
+                              )),
                         ],
                       ),
                     );
