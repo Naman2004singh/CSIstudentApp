@@ -1,3 +1,4 @@
+import 'package:csi_app/pages/mobile/others/events/event_detail.dart';
 import 'package:csi_app/providers/event_view_model.dart';
 import 'package:csi_app/providers/item_providers.dart';
 import 'package:csi_app/services/models/all_event.dart';
@@ -94,6 +95,10 @@ class Allevents extends ConsumerWidget {
                                   ref.read(selectedEventId.notifier).state =
                                       alldata.id;
                                   // now navigate to the screen by passing the event id
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => const EventDetail()));
                                 },
                               )),
                         ],

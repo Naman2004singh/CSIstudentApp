@@ -10,7 +10,7 @@ class EventDetailApi {
         await http.get(Uri.parse("$baseUrl/event/detail/$eventId/"), headers: {
       'Content-Type': 'application/json',
     });
-    print(response);
+    print(response.body);
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(response.body);
       return EventDetails.fromJson(data);
