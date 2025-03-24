@@ -6,7 +6,7 @@ class Textstyle {
 
   static TextStyle headlineLarge = const TextStyle(
       fontFamily: "Poppins",
-      fontSize: 30.0,
+      fontSize: 28.0,
       fontWeight: FontWeight.w600,
       color: AllColors.blackColor);
   static TextStyle headlineLargeWhite = const TextStyle(

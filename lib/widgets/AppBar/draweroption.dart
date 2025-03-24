@@ -1,6 +1,7 @@
 import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -10,8 +11,10 @@ class Draweroption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () {},
+    return GestureDetector(
+      onTap: () {
+        HapticFeedback.mediumImpact();
+      },
       child: Column(
         children: [
           Text(

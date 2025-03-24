@@ -18,6 +18,7 @@ class Allevents extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double padding = Constants.insidepadding;
     double smallborderRadius = Constants.smallradius;
+    double backSize = Constants.backButtonSize;
     double width = Constants.screenWidth(context);
     final allEventitems = ref.watch(allEventProvider);
     final appBarViewModel = ref.watch(stateProvider);
@@ -38,10 +39,10 @@ class Allevents extends ConsumerWidget {
                   children: [
                     IconButton(
                         onPressed: () {},
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.arrow_back,
                           color: AllColors.blackColor,
-                          size: 32,
+                          size: backSize,
                         )),
                     SizedBox(
                       width: width / 3.9,

@@ -1,7 +1,11 @@
+import 'package:csi_app/providers/event_view_model.dart';
 import 'package:csi_app/providers/item_providers.dart';
 import 'package:csi_app/services/models/event_details_model.dart';
 import 'package:csi_app/utils/colors.dart';
+import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/utils/styles.dart';
+import 'package:csi_app/widgets/AppBar/appBar.dart';
+import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,22 +14,54 @@ class EventDetail extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final appBarViewModel = ref.watch(stateProvider);
+    double backSize = Constants.backButtonSize;
+
     final allEventdetail = ref.watch(eventDetailProvider);
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: AllColors.whiteColor,
+      appBar: Appbar(isDrawerOpen: appBarViewModel.isDraweOpen),
+      drawer: const Appdrawer(),
+      onDrawerChanged: (isOpen) {
+        appBarViewModel.onDraweChange(isOpen);
+      },
       body: allEventdetail.when(
-        data: (data) {
-          EventDetails alldetails = data;
-          return Column(
-            children: [
-              Expanded(
-                child: Container(
-                  child: Image.network(alldetails.poster.toString()),
-                ))
-            ],
-          );
-        },
-        error: (error, stackTrace) => Center(
+          data: (data) {
+            EventDetails alldetails = data;
+            return Column(
+              children: [
+                Expanded(
+                    child: NestedScrollView(
+                        headerSliverBuilder: (context, innerBoxIsScrolled) {
+                          return <Widget>[
+                            SliverAppBar(
+                              automaticallyImplyLeading: false,
+                              leading: IconButton(
+                                icon: const Icon(Icons.arrow_back,
+                                    color: AllColors.blackColor),
+                                onPressed: () => Navigator.of(context).pop(),
+
+                                ///
+                              ),
+                              iconTheme: IconThemeData(
+                                  size: backSize, color: AllColors.blackColor),
+                              expandedHeight: 300.0,
+                              backgroundColor: AllColors.whiteColor,
+                              flexibleSpace: FlexibleSpaceBar(
+                                background: Image.network(
+                                  alldetails.poster.toString(),
+                                  filterQuality: FilterQuality.high,
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
+                            )
+                          ];
+                        },
+                        body: ListView()))
+              ],
+            );
+          },
+          error: (error, stackTrace) => Center(
                 child: Text(
                   "Error: $error",
                   style: Textstyle.bodyLarge,
@@ -33,7 +69,7 @@ class EventDetail extends ConsumerWidget {
               ),
           loading: () => const Center(
                 child: CircularProgressIndicator(color: AllColors.darkBlue),
-              ) ),
+              )),
     );
   }
 }

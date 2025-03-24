@@ -16,6 +16,7 @@ class Constants {
   static const double appBarHeight = 90.0;
   static const double borderRadius = 28.0;
   static const double smallradius = 15.0;
+  static const double backButtonSize = 32.0;
   static const double maxWidthDrawer = 268.0;
   static const double sizedBoxHeight = 25.0;
   static const double smallSizedBox = 10.0;
