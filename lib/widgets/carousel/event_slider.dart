@@ -7,6 +7,8 @@ import 'package:csi_app/providers/event_view_model.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:collection/collection.dart';
+import 'package:go_router/go_router.dart';
 
 class EventSlider extends ConsumerWidget {
   const EventSlider({super.key});
@@ -18,11 +20,18 @@ class EventSlider extends ConsumerWidget {
     final screenWidth = Constants.screenWidth(context);
     double borderRadius = Constants.borderRadius;
     double padding = Constants.insidepadding;
+    const int maxItemToShow = 5;
     final CarouselSliderController carouselController =
         CarouselSliderController();
     return allEvents.when(
         data: (data) {
-          List<AllEvent> allEventdata = data.map((e) => e).toList();
+          List<AllEvent> allEventdata = data
+              .where(
+                (element) => element.id != null,
+              )
+              .sorted((a, b) => b.id!.compareTo(a.id!))
+              .take(maxItemToShow)
+              .toList();
           return Column(
             children: [
               Stack(
@@ -37,26 +46,33 @@ class EventSlider extends ConsumerWidget {
                                 child: ConstrainedBox(
                                   constraints: BoxConstraints(
                                       maxHeight: 200, maxWidth: screenWidth),
-                                  child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.circular(borderRadius),
-                                    child: Image.network(
-                                      item.poster.toString(),
-                                      fit: BoxFit.cover,
-                                      width: screenWidth,
-                                      filterQuality: FilterQuality.high,
-                                      errorBuilder:
-                                          (context, error, stackTrace) {
-                                        return Container(
-                                          color: AllColors.mainColor,
-                                          child: Center(
-                                            child: Text(
-                                              "Error in loading the event",
-                                              style: Textstyle.bodyLargeWhite,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      ref.read(selectedEventId.notifier).state =
+                                          item.id;
+                                      GoRouter.of(context).go('/eventDetails');
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(borderRadius),
+                                      child: Image.network(
+                                        item.poster.toString(),
+                                        fit: BoxFit.cover,
+                                        width: screenWidth,
+                                        filterQuality: FilterQuality.high,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return Container(
+                                            color: AllColors.mainColor,
+                                            child: Center(
+                                              child: Text(
+                                                "Error in loading the event",
+                                                style: Textstyle.bodyLargeWhite,
+                                              ),
                                             ),
-                                          ),
-                                        );
-                                      },
+                                          );
+                                        },
+                                      ),
                                     ),
                                   ),
                                 ),

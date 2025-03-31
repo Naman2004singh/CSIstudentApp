@@ -10,6 +10,7 @@ import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:csi_app/widgets/dashboard/knowmore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class Allevents extends ConsumerWidget {
   const Allevents({super.key});
@@ -38,7 +39,9 @@ class Allevents extends ConsumerWidget {
                 Row(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          GoRouter.of(context).go("/dashboard");
+                        },
                         icon: Icon(
                           Icons.arrow_back,
                           color: AllColors.blackColor,
@@ -96,10 +99,7 @@ class Allevents extends ConsumerWidget {
                                   ref.read(selectedEventId.notifier).state =
                                       alldata.id;
                                   // now navigate to the screen by passing the event id
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => const EventDetail()));
+                                  GoRouter.of(context).go('/eventDetails');
                                 },
                               )),
                         ],

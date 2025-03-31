@@ -8,6 +8,7 @@ import 'package:csi_app/widgets/AppBar/appBar.dart';
 import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class EventDetail extends ConsumerWidget {
   const EventDetail({super.key});
@@ -37,12 +38,15 @@ class EventDetail extends ConsumerWidget {
                             SliverAppBar(
                               automaticallyImplyLeading: false,
                               leading: IconButton(
-                                icon: const Icon(Icons.arrow_back,
-                                    color: AllColors.blackColor),
-                                onPressed: () => Navigator.of(context).pop(),
-
-                                ///
-                              ),
+                                  icon: const Icon(Icons.arrow_back,
+                                      color: AllColors.blackColor),
+                                  onPressed: () {
+                                    if (Navigator.canPop(context)) {
+                                      Navigator.of(context).pop();
+                                    } else {
+                                      GoRouter.of(context).go('/dashboard');
+                                    }
+                                  }),
                               iconTheme: IconThemeData(
                                   size: backSize, color: AllColors.blackColor),
                               expandedHeight: 300.0,

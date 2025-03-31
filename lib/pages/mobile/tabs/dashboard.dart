@@ -70,7 +70,8 @@ class Dashboard extends ConsumerWidget {
                               left: width / 2.7,
                               child: Knowmore(
                                 onTap: () {
-                                  // ref.read(selectedEventId.notifier).state =
+                                  //Navigation
+                                  GoRouter.of(context).go('/Allevents');
                                 },
                               )),
                         ],

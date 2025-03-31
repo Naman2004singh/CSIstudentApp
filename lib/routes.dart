@@ -1,4 +1,5 @@
 import 'package:csi_app/pages/mobile/others/events/allEvents.dart';
+import 'package:csi_app/pages/mobile/others/events/event_detail.dart';
 import 'package:csi_app/pages/mobile/tabs/dashboard.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,6 +12,9 @@ class AppRoutes {
     GoRoute(
       path: '/Allevents',
       builder: (context, state) => const Allevents(),
-    )
+    ),
+    GoRoute(
+      path: '/eventDetails',
+      builder: (context, state) => const EventDetail(),)
   ]);
 }
