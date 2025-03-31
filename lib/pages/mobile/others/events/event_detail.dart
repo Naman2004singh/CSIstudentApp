@@ -6,6 +6,7 @@ import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
 import 'package:csi_app/widgets/AppBar/appdrawer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -17,10 +18,12 @@ class EventDetail extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appBarViewModel = ref.watch(stateProvider);
     double backSize = Constants.backButtonSize;
+    double padding = Constants.insidepadding;
+    double borderRadius = Constants.smallradius;
 
     final allEventdetail = ref.watch(eventDetailProvider);
     return Scaffold(
-      backgroundColor: AllColors.whiteColor,
+      backgroundColor: AllColors.greyBackground,
       appBar: Appbar(isDrawerOpen: appBarViewModel.isDraweOpen),
       drawer: const Appdrawer(),
       onDrawerChanged: (isOpen) {
@@ -37,25 +40,39 @@ class EventDetail extends ConsumerWidget {
                           return <Widget>[
                             SliverAppBar(
                               automaticallyImplyLeading: false,
-                              leading: IconButton(
-                                  icon: const Icon(Icons.arrow_back,
-                                      color: AllColors.blackColor),
-                                  onPressed: () {
-                                    if (Navigator.canPop(context)) {
-                                      Navigator.of(context).pop();
-                                    } else {
-                                      GoRouter.of(context).go('/dashboard');
-                                    }
-                                  }),
+                              pinned: true,
+                              leading: Container(
+                                margin: const EdgeInsets.only(top: 5.0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    color: AllColors.lightBlueColor),
+                                child: IconButton(
+                                    icon: const Icon(Icons.arrow_back,
+                                        color: AllColors.blackColor),
+                                    onPressed: () {
+                                      if (Navigator.canPop(context)) {
+                                        Navigator.of(context).pop();
+                                      } else {
+                                        GoRouter.of(context).go('/dashboard');
+                                      }
+                                    }),
+                              ),
                               iconTheme: IconThemeData(
                                   size: backSize, color: AllColors.blackColor),
-                              expandedHeight: 300.0,
+                              expandedHeight: 250.0,
                               backgroundColor: AllColors.whiteColor,
-                              flexibleSpace: FlexibleSpaceBar(
-                                background: Image.network(
-                                  alldetails.poster.toString(),
-                                  filterQuality: FilterQuality.high,
-                                  fit: BoxFit.fitWidth,
+                              flexibleSpace: Padding(
+                                padding: EdgeInsets.all(padding),
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.circular(borderRadius),
+                                  child: FlexibleSpaceBar(
+                                    background: Image.network(
+                                      alldetails.poster.toString(),
+                                      filterQuality: FilterQuality.high,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ),
                             )

@@ -27,7 +27,7 @@ class Dashboard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double width = Constants.screenWidth(context);
     final eventViewModel = ref.watch(stateProvider);
-    final allEventitems = ref.watch(allEventProvider);
+    // final allEventitems = ref.watch(allEventProvider);
     return SafeArea(
       child: Scaffold(
           appBar: Appbar(

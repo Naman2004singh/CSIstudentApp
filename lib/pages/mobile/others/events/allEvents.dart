@@ -66,6 +66,7 @@ class Allevents extends ConsumerWidget {
                       child: Stack(
                         children: [
                           Container(
+                            // constraints: const BoxConstraints(maxHeight: 250.0),
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.circular(smallborderRadius),
