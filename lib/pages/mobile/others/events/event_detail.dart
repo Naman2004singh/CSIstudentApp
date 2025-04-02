@@ -6,6 +6,7 @@ import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
 import 'package:csi_app/widgets/AppBar/appdrawer.dart';
+import 'package:csi_app/widgets/event_components/event_overview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,6 +21,7 @@ class EventDetail extends ConsumerWidget {
     double backSize = Constants.backButtonSize;
     double padding = Constants.insidepadding;
     double borderRadius = Constants.smallradius;
+    double largebr = Constants.borderRadius;
 
     final allEventdetail = ref.watch(eventDetailProvider);
     return Scaffold(
@@ -40,6 +42,8 @@ class EventDetail extends ConsumerWidget {
                           return <Widget>[
                             SliverAppBar(
                               automaticallyImplyLeading: false,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(largebr)),
                               pinned: true,
                               leading: Container(
                                 margin: const EdgeInsets.only(top: 5.0),
@@ -78,7 +82,25 @@ class EventDetail extends ConsumerWidget {
                             )
                           ];
                         },
-                        body: ListView()))
+                        body: ListView(
+                          children: [
+                            EventOverview(
+                              imageUrl: alldetails.poster.toString(),
+                              eventHeading: alldetails.title.toString(),
+                              location: alldetails.venue.toString(),
+                              date: alldetails.eventDate
+                                  .toString()
+                                  .substring(0, 10),
+                              // teamNo: alldetails.,
+                              startDate: alldetails.registrationStartDate
+                                  .toString()
+                                  .substring(0, 10),
+                              endDate: alldetails.registrationEndDate
+                                  .toString()
+                                  .substring(0, 10),
+                            )
+                          ],
+                        )))
               ],
             );
           },
