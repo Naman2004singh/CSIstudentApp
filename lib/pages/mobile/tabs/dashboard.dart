@@ -61,7 +61,7 @@ class Dashboard extends ConsumerWidget {
                                   heading: "Events",
                                   sideOptions: "See all",
                                   onPressed: () =>
-                                      GoRouter.of(context).go("/Allevents")),
+                                      GoRouter.of(context).push("/Allevents")),
                               const EventSlider(),
                             ],
                           ),
@@ -71,7 +71,7 @@ class Dashboard extends ConsumerWidget {
                               child: Knowmore(
                                 onTap: () {
                                   //Navigation
-                                  GoRouter.of(context).go('/Allevents');
+                                  GoRouter.of(context).push('/Allevents');
                                 },
                               )),
                         ],

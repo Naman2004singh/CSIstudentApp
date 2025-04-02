@@ -7,6 +7,7 @@ import 'package:csi_app/utils/styles.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
 import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:csi_app/widgets/event_components/event_overview.dart';
+import 'package:csi_app/widgets/event_components/reg_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -44,7 +45,7 @@ class EventDetail extends ConsumerWidget {
                               automaticallyImplyLeading: false,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(largebr)),
-                              pinned: true,
+                              // pinned: true,
                               leading: Container(
                                 margin: const EdgeInsets.only(top: 5.0),
                                 decoration: BoxDecoration(
@@ -98,7 +99,9 @@ class EventDetail extends ConsumerWidget {
                               endDate: alldetails.registrationEndDate
                                   .toString()
                                   .substring(0, 10),
-                            )
+                            ),
+                            // SizedBox(height: borderRadius,),
+                            regButton(alldetails.status.toString())
                           ],
                         )))
               ],

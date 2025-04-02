@@ -48,9 +48,9 @@ class EventSlider extends ConsumerWidget {
                                       maxHeight: 200, maxWidth: screenWidth),
                                   child: GestureDetector(
                                     onTap: () {
-                                      ref.read(selectedEventId.notifier).state =
-                                          item.id;
-                                      GoRouter.of(context).go('/eventDetails');
+                                      // ref.read(selectedEventId.notifier).state =
+                                      //     item.id;
+                                      // GoRouter.of(context).push('/eventDetails');
                                     },
                                     child: ClipRRect(
                                       borderRadius:

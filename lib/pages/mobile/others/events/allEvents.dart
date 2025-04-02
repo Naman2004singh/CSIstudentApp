@@ -100,7 +100,7 @@ class Allevents extends ConsumerWidget {
                                   ref.read(selectedEventId.notifier).state =
                                       alldata.id;
                                   // now navigate to the screen by passing the event id
-                                  GoRouter.of(context).go('/eventDetails');
+                                  GoRouter.of(context).push('/eventDetails');
                                 },
                               )),
                         ],

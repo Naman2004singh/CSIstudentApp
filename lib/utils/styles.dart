@@ -66,6 +66,7 @@ class Textstyle {
       color: AllColors.darkBlue);
   static TextStyle redText = const TextStyle(
       fontFamily: "Poppins",
+      fontSize: 14.0,
       fontWeight: FontWeight.w400,
       color: AllColors.redColor);
 }
