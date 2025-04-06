@@ -94,7 +94,7 @@ class Allevents extends ConsumerWidget {
                                   text: alldata.status.toString())),
                           Positioned(
                               bottom: 20,
-                              left: width / 2.7,
+                              left: width / 2.9,
                               child: Knowmore(
                                 onTap: () {
                                   ref.read(selectedEventId.notifier).state =
@@ -111,10 +111,13 @@ class Allevents extends ConsumerWidget {
               ],
             );
           },
-          error: (error, stackTrace) => Center(
-                child: Text(
-                  "Error: $error",
-                  style: Textstyle.bodyLarge,
+          error: (error, stackTrace) => SizedBox(
+                height: 100,
+                child: Center(
+                  child: Text(
+                    "Error: $error",
+                    style: Textstyle.bodyLarge,
+                  ),
                 ),
               ),
           loading: () => const Center(

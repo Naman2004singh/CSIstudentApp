@@ -15,6 +15,6 @@ class AppRoutes {
     ),
     GoRoute(
       path: '/eventDetails',
-      builder: (context, state) => const EventDetail(),)
+      builder: (context, state) => const EventDetail(),),
   ]);
 }

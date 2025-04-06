@@ -95,7 +95,7 @@ class EventOverview extends StatelessWidget {
                     style: Textstyle.bodySmall,
                   ),
                   Container(
-                    padding: const EdgeInsets.all(3.0),
+                    padding: const EdgeInsets.all(2.0),
                     decoration: BoxDecoration(
                         color: AllColors.lightBlueColor,
                         borderRadius: BorderRadius.circular(smallsized)),
@@ -109,7 +109,8 @@ class EventOverview extends StatelessWidget {
                     style: Textstyle.bodySmall,
                   ),
                   Container(
-                    padding: const EdgeInsets.all(3.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 2.0, vertical: 4.0),
                     decoration: BoxDecoration(
                         color: AllColors.lightBlueColor,
                         borderRadius: BorderRadius.circular(smallsized)),

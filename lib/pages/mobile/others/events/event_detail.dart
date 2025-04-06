@@ -6,9 +6,10 @@ import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
 import 'package:csi_app/widgets/AppBar/appdrawer.dart';
+import 'package:csi_app/widgets/event_components/description.dart';
 import 'package:csi_app/widgets/event_components/event_overview.dart';
+import 'package:csi_app/widgets/event_components/event_poster.dart';
 import 'package:csi_app/widgets/event_components/reg_button.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -72,10 +73,16 @@ class EventDetail extends ConsumerWidget {
                                   borderRadius:
                                       BorderRadius.circular(borderRadius),
                                   child: FlexibleSpaceBar(
-                                    background: Image.network(
-                                      alldetails.poster.toString(),
-                                      filterQuality: FilterQuality.high,
-                                      fit: BoxFit.cover,
+                                    background: GestureDetector(
+                                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EventPoster(poster: alldetails.poster.toString()),)),
+                                      child: Hero(
+                                        tag: 'full image',
+                                        child: Image.network(
+                                          alldetails.poster.toString(),
+                                          filterQuality: FilterQuality.high,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -101,7 +108,10 @@ class EventDetail extends ConsumerWidget {
                                   .substring(0, 10),
                             ),
                             // SizedBox(height: borderRadius,),
-                            regButton(alldetails.status.toString())
+                            regButton(alldetails.status.toString()),
+                            Description(
+                                description: alldetails.description.toString(),
+                                guidelines: alldetails.guidelines.toString(),)
                           ],
                         )))
               ],
