@@ -13,7 +13,7 @@ class Constants {
   static const double insidepadding = 20.0;
   static const double smallPadding = 10.0;
   static const double avatarRadius = 50.0;
-  static const double appBarHeight = 90.0;
+  static const double appBarHeight = 75.0;
   static const double borderRadius = 28.0;
   static const double smallradius = 15.0;
   static const double backButtonSize = 32.0;

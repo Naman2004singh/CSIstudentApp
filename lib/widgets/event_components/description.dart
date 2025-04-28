@@ -19,6 +19,8 @@ class Description extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.all(padding),
+          padding:
+              EdgeInsets.symmetric(horizontal: padding, vertical: smallpadding),
           decoration: BoxDecoration(
               color: AllColors.whiteColor,
               borderRadius: BorderRadius.circular(bRadius)),
@@ -27,7 +29,7 @@ class Description extends StatelessWidget {
               Text(
                 "Description",
                 textAlign: TextAlign.center,
-                style: Textstyle.headlineMedium,
+                style: Textstyle.headlineSmall,
               ),
               Text(
                 description,
@@ -39,6 +41,8 @@ class Description extends StatelessWidget {
         ),
         Container(
           margin: EdgeInsets.all(padding),
+          padding:
+              EdgeInsets.symmetric(horizontal: padding, vertical: smallpadding),
           decoration: BoxDecoration(
               color: AllColors.whiteColor,
               borderRadius: BorderRadius.circular(bRadius)),
@@ -47,7 +51,7 @@ class Description extends StatelessWidget {
               Text(
                 "Rules & Guidelines",
                 textAlign: TextAlign.center,
-                style: Textstyle.headlineMedium,
+                style: Textstyle.headlineSmall,
               ),
               Text(
                 guidelines,

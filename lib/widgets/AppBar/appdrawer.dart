@@ -2,6 +2,7 @@ import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/AppBar/draweroption.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Appdrawer extends StatefulWidget {
@@ -29,13 +30,13 @@ class _AppdrawerState extends State<Appdrawer> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    child: Image.asset(
-                      "assets/images/drawerIcon.png",
+                    child: SvgPicture.asset(
+                      "assets/images/draweIcon.svg",
                       width: 30,
                     ),
                   ),
-                  Image.asset(
-                    "assets/logos/csiLogo.png",
+                  SvgPicture.asset(
+                    "assets/logos/csiLogo.svg",
                     width: 40,
                   ),
                 ],

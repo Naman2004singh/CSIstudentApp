@@ -45,6 +45,7 @@ class Dashboard extends ConsumerWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   Card(
+                      color: AllColors.whiteColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(borderRadius),

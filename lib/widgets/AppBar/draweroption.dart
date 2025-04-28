@@ -39,7 +39,10 @@ class Draweroption extends StatelessWidget {
 urlLauncher(IconData icondata, String navigateUrl) {
   return IconButton(
       onPressed: () async {
-        await launchUrl(Uri.parse(navigateUrl));
+        final Uri uri = Uri.parse(navigateUrl);
+        if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+          throw Exception('Cound not Lauch');
+        }
       },
       icon: FaIcon(
         icondata,
