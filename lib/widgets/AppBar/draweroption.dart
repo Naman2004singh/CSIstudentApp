@@ -36,7 +36,7 @@ class Draweroption extends StatelessWidget {
   }
 }
 
-urlLauncher(IconData icondata, String navigateUrl) {
+Widget urlLauncher(IconData icondata, String navigateUrl) {
   return IconButton(
       onPressed: () async {
         final Uri uri = Uri.parse(navigateUrl);

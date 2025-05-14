@@ -8,11 +8,11 @@ class EventViewModel with ChangeNotifier {
   int currentIndex = 0;
   bool isDraweopen = false;
 
-  List eventList = [
-    {"id": 1, "event_image": "assets/images/event1.png"},
-    {"id": 2, "event_image": "assets/images/event2.png"},
-    {"id": 3, "event_image": "assets/images/event3.png"},
-  ];
+  // List eventList = [
+  //   {"id": 1, "event_image": "assets/images/event1.png"},
+  //   {"id": 2, "event_image": "assets/images/event2.png"},
+  //   {"id": 3, "event_image": "assets/images/event3.png"},
+  // ];
 
   onPageChange(index, reason) {
     currentIndex = index;
