@@ -1,13 +1,14 @@
 class AllStrings {
   static String logoCsi = "assets/logos/csiLogo.png";
+  static String logoCSiSvg = "assets/logos/csiLogo.svg";
 
   static String whoWeAre =
       "The COMPUTER SOCIETY OF INDIA (acronym as CSI) was formed in the year 1965. Since its inception, CSI has been the way for the IT industry to advance in the right direction. By indulging within itself most famous IT leaders, brilliant scientists and dedicated academicians, CSI has been highly successful in setting highest benchmarks in the field of professional competence with high quality commitment.";
 
   static List iconName = [
-    {"name": "We Create", "image": "assets/logos/edit.png"},
-    {"name": "We Share", "image": "assets/logos/share.png"},
-    {"name": "We Innovate", "image": "assets/logos/bulb.png"}
+    {"name": "We Create", "image": "assets/logos/edit.svg"},
+    {"name": "We Share", "image": "assets/logos/share.svg"},
+    {"name": "We Innovate", "image": "assets/logos/bulb.svg"}
   ];
 
   static String ourMisson =

@@ -3,6 +3,7 @@ import 'package:csi_app/utils/strings.dart';
 import 'package:csi_app/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:csi_app/utils/constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OurFeatures extends StatelessWidget {
   const OurFeatures({super.key});
@@ -28,7 +29,7 @@ class OurFeatures extends StatelessWidget {
         return ListTile(
           leading: CircleAvatar(
             backgroundColor: AllColors.mainColor,
-            child: Image.asset(value["image"]),
+            child: SvgPicture.asset(value["image"]),
           ),
           title: Text(
             value["name"],

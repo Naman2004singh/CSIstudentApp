@@ -6,10 +6,11 @@ import 'package:csi_app/utils/constants.dart';
 double padding = Constants.insidepadding;
 
 class Headings extends StatelessWidget {
-  const Headings({super.key, required this.heading, required this.sideOptions});
+  const Headings({super.key, required this.heading, required this.sideOptions, this.onPressed});
 
   final String heading;
   final String sideOptions;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,9 +25,12 @@ class Headings extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                sideOptions,
-                style: Textstyle.sideOptionsText,
+              TextButton(
+                onPressed: onPressed,
+                child: Text(
+                  sideOptions,
+                style: Textstyle.sideOptionsText
+                ),
               ),
               const Icon(
                 Icons.arrow_forward_ios,

@@ -16,7 +16,7 @@ class _KnowmoreState extends State<Knowmore> {
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
         decoration: BoxDecoration(
             color: AllColors.lightBlueColor,
             borderRadius: BorderRadius.circular(20)),

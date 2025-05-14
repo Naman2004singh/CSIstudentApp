@@ -2,6 +2,7 @@ import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/utils/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart' hide Image;
 
 class Appbar extends StatefulWidget implements PreferredSizeWidget {
@@ -66,7 +67,7 @@ class _AppbarState extends State<Appbar> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset(AllStrings.logoCsi),
+            SvgPicture.asset(AllStrings.logoCSiSvg),
             Row(
               children: [
                 const Icon(

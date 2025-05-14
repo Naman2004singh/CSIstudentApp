@@ -1,4 +1,5 @@
 import 'package:csi_app/providers/item_providers.dart';
+import 'package:csi_app/routes.dart';
 import 'package:csi_app/utils/colors.dart';
 import 'package:csi_app/utils/constants.dart';
 import 'package:csi_app/widgets/AppBar/appBar.dart';
@@ -12,6 +13,7 @@ import 'package:csi_app/widgets/dashboard/our_misson.dart';
 import 'package:csi_app/widgets/dashboard/who_we_are.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 double padding = Constants.insidepadding;
 double borderRadius = Constants.borderRadius;
@@ -25,7 +27,7 @@ class Dashboard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double width = Constants.screenWidth(context);
     final eventViewModel = ref.watch(stateProvider);
-    final allEventitems = ref.watch(allEventProvider);
+    // final allEventitems = ref.watch(allEventProvider);
     return SafeArea(
       child: Scaffold(
           appBar: Appbar(
@@ -43,6 +45,7 @@ class Dashboard extends ConsumerWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   Card(
+                      color: AllColors.whiteColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(borderRadius),
@@ -55,17 +58,21 @@ class Dashboard extends ConsumerWidget {
                               SizedBox(
                                 height: smallbox,
                               ),
-                              const Headings(
-                                  heading: "Events", sideOptions: "See all"),
+                              Headings(
+                                  heading: "Events",
+                                  sideOptions: "See all",
+                                  onPressed: () =>
+                                      GoRouter.of(context).push("/Allevents")),
                               const EventSlider(),
                             ],
                           ),
                           Positioned(
-                              bottom: 20,
+                              bottom: 30,
                               left: width / 2.7,
                               child: Knowmore(
                                 onTap: () {
-                                  // ref.read(selectedEventId.notifier).state = 
+                                  //Navigation
+                                  GoRouter.of(context).push('/Allevents');
                                 },
                               )),
                         ],

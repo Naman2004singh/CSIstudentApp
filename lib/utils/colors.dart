@@ -10,6 +10,7 @@ class AllColors {
   static const Color darkBlue = Color(0xff0032CD);
   static const Color geryTextColor = Color(0xff495057);
   static const Color redColor = Color(0xffFF0000);
+  static const Color lightredColor = Color.fromARGB(255, 235, 138, 138);
   static const Color lightBlueColor = Color(0xffCFE2FF);
   static const Color greyBackground = Color(0xffE9ECEF);
 }

@@ -10,10 +10,6 @@ class EventApi {
         .get(Uri.parse("$baseUrl/event/event-for-homepage/"), headers: {
       'Content-Type': 'application/json',
     });
-    // print("Response Status Code: ${response.statusCode}");
-    // print("Response Body: ${response.body}");
-    // print("$baseUrl/event/list/");
-    // print(response);
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);
       return data.map((e) => AllEvent.fromJson(e)).toList();

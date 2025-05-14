@@ -1,3 +1,4 @@
+import 'package:csi_app/pages/mobile/others/events/event_detail.dart';
 import 'package:csi_app/providers/event_view_model.dart';
 import 'package:csi_app/providers/item_providers.dart';
 import 'package:csi_app/services/models/all_event.dart';
@@ -9,6 +10,7 @@ import 'package:csi_app/widgets/AppBar/appdrawer.dart';
 import 'package:csi_app/widgets/dashboard/knowmore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class Allevents extends ConsumerWidget {
   const Allevents({super.key});
@@ -17,6 +19,7 @@ class Allevents extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double padding = Constants.insidepadding;
     double smallborderRadius = Constants.smallradius;
+    double backSize = Constants.backButtonSize;
     double width = Constants.screenWidth(context);
     final allEventitems = ref.watch(allEventProvider);
     final appBarViewModel = ref.watch(stateProvider);
@@ -36,11 +39,13 @@ class Allevents extends ConsumerWidget {
                 Row(
                   children: [
                     IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
+                        onPressed: () {
+                          GoRouter.of(context).go("/dashboard");
+                        },
+                        icon: Icon(
                           Icons.arrow_back,
                           color: AllColors.blackColor,
-                          size: 32,
+                          size: backSize,
                         )),
                     SizedBox(
                       width: width / 3.9,
@@ -61,6 +66,7 @@ class Allevents extends ConsumerWidget {
                       child: Stack(
                         children: [
                           Container(
+                            // constraints: const BoxConstraints(maxHeight: 250.0),
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.circular(smallborderRadius),
@@ -88,12 +94,13 @@ class Allevents extends ConsumerWidget {
                                   text: alldata.status.toString())),
                           Positioned(
                               bottom: 20,
-                              left: width / 2.7,
+                              left: width / 2.9,
                               child: Knowmore(
                                 onTap: () {
                                   ref.read(selectedEventId.notifier).state =
                                       alldata.id;
                                   // now navigate to the screen by passing the event id
+                                  GoRouter.of(context).push('/eventDetails');
                                 },
                               )),
                         ],
@@ -104,10 +111,13 @@ class Allevents extends ConsumerWidget {
               ],
             );
           },
-          error: (error, stackTrace) => Center(
-                child: Text(
-                  "Error: $error",
-                  style: Textstyle.bodyLarge,
+          error: (error, stackTrace) => SizedBox(
+                height: 100,
+                child: Center(
+                  child: Text(
+                    "Error: $error",
+                    style: Textstyle.bodyLarge,
+                  ),
                 ),
               ),
           loading: () => const Center(
